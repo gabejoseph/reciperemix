@@ -1,0 +1,2 @@
+class RemixesController < ApplicationController
+end
