@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_235023) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
+    t.integer "calories"
     t.integer "recipe_id"
     t.integer "remix_id"
     t.datetime "created_at", precision: 6, null: false
