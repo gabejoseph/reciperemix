@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
     def index
         @user = User.all
+        binding.pry
     end 
 
     def new 
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     
 
       def show
-        
+
         if session[:user_id]
             @user = User.find(params[:id])
         else 
