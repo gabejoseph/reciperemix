@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     
 
       def show
+        
         if session[:user_id]
             @user = User.find(params[:id])
         else 
@@ -48,5 +49,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height, :admin)
     end
-    
+
 end
