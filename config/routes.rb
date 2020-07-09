@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :remixes
   resources :recipes
   resources :users
+  resources :users, only: [:show] do 
+    resources :recipes, only: [:index]
+    resources :remixes, only: [:index]
+  end 
+
 
   get '/', to: 'users#index'
   get '/signup', to: 'users#new'
