@@ -5,8 +5,12 @@ class UsersController < ApplicationController
         @user = User.all
     end 
 
-    def new 
+    def signup 
         @user = User.new
+    end 
+
+    def login 
+        render '/users/login'
     end 
 
     def create
