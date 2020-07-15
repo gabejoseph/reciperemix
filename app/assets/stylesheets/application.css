@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ 
+.box {
+    background-image: url("../images/Fresh-food_thumbnail_1536x1536_200_Standard.jpg");
+}
+  
