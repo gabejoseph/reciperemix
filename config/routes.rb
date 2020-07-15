@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  resources :ingredients
-  resources :remixes
-  resources :recipes
   resources :users
-  resources :users, only: [:show] do 
-    resources :recipes, only: [:index]
-    resources :remixes, only: [:index]
+  resources :recipe do 
+    resources :ingredients
+  end 
+  resources :remixes do 
+    resources :ingredients
   end 
 
 
   get '/', to: 'users#index'
   get '/signup', to: 'users#new'
   get '/logout', to: 'users#destroy'
+  get '/recipe/created', to: 'recipe#created'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
