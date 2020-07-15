@@ -7,17 +7,18 @@ class UsersController < ApplicationController
 
     def signup 
         @user = User.new
+        render :new
     end 
 
     def login 
-        render '/users/login'
+        render 'users/login'
     end 
 
     def create
         user = User.create(user_params)
         if user.valid?
             session[:user_id] = user.id
-            redirect_to user
+            redirect_to recipe_index_path
         else 
             render :new
         end 
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :password, :email)
+        params.require(:user).permit(:username, :password, :email)
     end
 
 end

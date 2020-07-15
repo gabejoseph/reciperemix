@@ -1,4 +1,4 @@
-class RecipesController < ApplicationController
+class RecipeController < ApplicationController
 
     def created
         #needs to use scope method .created from recipe class and redirect to
@@ -51,7 +51,7 @@ class RecipesController < ApplicationController
     private
 
     def user_params
-        params.require(:recipe).permit(:name, :ingredients, :user_id))
+        params.require(:recipe).permit(:name, :ingredients, :user_id)
     end
     
 end
