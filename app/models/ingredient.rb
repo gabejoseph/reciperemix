@@ -4,6 +4,5 @@ class Ingredient < ApplicationRecord
     has_many :users, through: :remixes
     has_many :users, through: :recipes
 
-    validates :calories, :fats, :carbohydrates, :protein, presence: true
 
 end

@@ -14,12 +14,11 @@ class RecipeController < ApplicationController
     end 
  
     def create
-        binding.pry
-        @recipe = Recipe.create
+        @recipe = Recipe.new(recipe_params)
         @recipe.user_id = current_user.id
         @recipe.save
         binding.pry
-        redirect_to recipe_ingredients_path
+        redirect_to recipe_ingredients_path(@recipe.id)
     end
     
 
@@ -46,5 +45,11 @@ class RecipeController < ApplicationController
             redirect_to '/'
         end 
     end
+    
+    private
 
+    def recipe_params
+        params.require(:recipe).permit(:name, :user_id)
+    end
+    
 end

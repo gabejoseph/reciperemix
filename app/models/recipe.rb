@@ -4,6 +4,5 @@ class Recipe < ApplicationRecord
     has_many :remixes, through: :users
     has_many :ingredients
 
-    validates :ingredients, presence: true
 
 end
