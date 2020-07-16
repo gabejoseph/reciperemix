@@ -5,5 +5,10 @@ class User < ApplicationRecord
     has_many :ingredients, through: :remixes
     has_many :ingredients, through: :recipes
 
+    validates :username, :email, presence: true
+    validates :password, length: { minimum: 6}
+
+
+
 
 end
