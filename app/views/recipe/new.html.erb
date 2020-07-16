@@ -1,10 +1,13 @@
-<form action='/tweets' method="post">
-  Content:
-  <input type="text" name="content"><br>
-  Create Your Tweet:
+<%= form_for @recipe do |f| %>
+  <% binding.pry %>
+  
+  <%= f.label 'Name of Recipe' %>
+  <%= f.text_field :name %></br>
 
-  <input type="submit" name="submit" id="submit">
+  <%= f.label 'Ingredients'  %>
+  <%= f.text_field :ingredients %></br>
 
-</form>
+  <%= f.submit %>
 
+<% end %>
 

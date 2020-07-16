@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_07_07_235023) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.string "ingredients"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_07_07_235023) do
 
   create_table "remixes", force: :cascade do |t|
     t.string "name"
-    t.string "ingredients"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
