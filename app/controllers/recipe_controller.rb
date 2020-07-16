@@ -6,13 +6,13 @@ class RecipeController < ApplicationController
     end 
 
     def index
-        @recipe = Recipe.all
+        @recipes = Recipe.all
     end 
 
     def new 
         @recipe = Recipe.new
     end 
-
+ 
     def create
         # user = User.create(user_params)
         # if user.valid?
