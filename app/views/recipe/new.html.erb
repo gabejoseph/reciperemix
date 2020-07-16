@@ -4,9 +4,7 @@
   <%= f.text_field :name %></br>
 
   <%= f.label 'Ingredients' %>
-  <%= f.text_field :ingredients %></br>
   <%= f.collection_select :ingredients, Ingredient.all, :name, :name %></br>
-
 
   <%= f.submit %>
 

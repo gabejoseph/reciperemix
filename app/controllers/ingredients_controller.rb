@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+    
     def index
         @ingredients = Ingredient.all
     end 
@@ -44,9 +45,9 @@ class IngredientsController < ApplicationController
         end 
     end
     
-    private
+    # private
 
-    def user_params
-        params.require(:ingredients).permit(:name, :calories, :recipe_id, :remix_id)
-    end
+    # def user_params
+    #     params.require(:ingredients).permit(:name, :calories, :recipe_id, :remix_id)
+    # end
 end
