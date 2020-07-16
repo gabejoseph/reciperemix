@@ -15,28 +15,10 @@ class UsersController < ApplicationController
         end 
     end 
 
-    def login 
-        if logged_in?
-            redirect_to recipe_index_path
-        else 
-            render :login
-        end 
-    end 
-
-    post '/login' do 
-        @user = User.find_by(username: params[:name])
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
-            redirect to recipe_index_path
-        else 
-            redirect_to '/login'
-        end 
-    end 
-
     def create
-        user = User.create(user_params)
-        if user.valid?
-            session[:user_id] = user.id
+        @user = User.create(user_params)
+        if @user.valid?
+            session[:user_id] = @user.id
             redirect_to recipe_index_path
         else 
             render :new
