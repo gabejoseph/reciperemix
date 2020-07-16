@@ -1,17 +1,36 @@
 require 'pry'
 class UsersController < ApplicationController
+    protect_from_forgery
 
     def index
         @user = User.all
     end 
 
     def signup 
-        @user = User.new
-        render :new
+        if logged_in?
+            redirect_to recipe_index_path
+        else 
+            @user = User.new
+            render :new
+        end 
     end 
 
     def login 
-        render 'users/login'
+        if logged_in?
+            redirect_to recipe_index_path
+        else 
+            render :login
+        end 
+    end 
+
+    post '/login' do 
+        @user = User.find_by(username: params[:name])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect to recipe_index_path
+        else 
+            redirect_to '/login'
+        end 
     end 
 
     def create
@@ -26,10 +45,11 @@ class UsersController < ApplicationController
 
     def destroy
         if current_user
-            binding.pry
             session.delete :user_id
+            redirect_to '/login'
+        else 
             redirect_to '/'
-        end 
+        end
     end
     
     private
