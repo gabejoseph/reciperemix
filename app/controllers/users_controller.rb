@@ -1,6 +1,5 @@
 require 'pry'
 class UsersController < ApplicationController
-    protect_from_forgery
 
     def index
         @user = User.all

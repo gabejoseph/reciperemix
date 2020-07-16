@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
     def new 
         if logged_in?
             redirect_to recipe_index_path
+        else 
+            render :new
         end 
     end 
 
