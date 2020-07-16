@@ -22,28 +22,11 @@ class UsersController < ApplicationController
         else 
             render :new
         end 
-      end
-    
-
-      def show
-
-        if session[:user_id]
-            @user = User.find(params[:id])
-        else 
-            redirect_to '/'
-        end 
-      end
-
-    def edit
-
-    end 
-
-    def update
-        
-    end 
+    end
 
     def destroy
         if current_user
+            binding.pry
             session.delete :user_id
             redirect_to '/'
         end 
