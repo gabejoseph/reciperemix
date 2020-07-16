@@ -1,11 +1,12 @@
 <%= form_for @recipe do |f| %>
-  <% binding.pry %>
   
   <%= f.label 'Name of Recipe' %>
   <%= f.text_field :name %></br>
 
-  <%= f.label 'Ingredients'  %>
+  <%= f.label 'Ingredients' %>
   <%= f.text_field :ingredients %></br>
+  <%= f.collection_select :ingredients, Ingredient.all, :name, :name %></br>
+
 
   <%= f.submit %>
 
