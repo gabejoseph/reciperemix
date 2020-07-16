@@ -3,5 +3,6 @@ class Remix < ApplicationRecord
     belongs_to :user
     has_many :ingredients
 
+    validates :ingredients, presence: true
 
 end
