@@ -18,20 +18,11 @@ ActiveRecord::Schema.define(version: 2020_07_07_235023) do
     t.integer "fats"
     t.integer "carbohydrates"
     t.integer "protein"
-    t.integer "recipe_id", default: 0
-    t.integer "remix_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "remixes", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

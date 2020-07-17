@@ -5,18 +5,17 @@ class IngredientsController < ApplicationController
     end 
 
     def new 
-        @ingredients = Ingredient.new(recipe_id: params[:recipe_id])
+        @ingredients = Ingredient.new
     end 
 
-    def create
-        binding.pry
+    def create 
         @ingredient = Ingredient.create(ingredient_params)
-        binding.pry
-        redirect_to recipe_path
+        redirect_to recipe_ingredients_path(@ingredient)
     end
     
 
     def show
+        
     end
 
     def edit
@@ -37,7 +36,7 @@ class IngredientsController < ApplicationController
     private
 
     def ingredient_params
-        params.require(:ingredient).permit(:name, :calories, :fats, :protein, :carbohydrates, :recipe_id)
+        params.require(:ingredient).permit(:name, :calories, :fats, :protein, :carbohydrates)
     end
 
 end
