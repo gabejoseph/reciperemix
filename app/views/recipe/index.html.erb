@@ -8,10 +8,9 @@
 <h1>My Recipes</h1>
 <% if !@user_recipes.nil? %>
     <% @user_recipes.each do |recipe| %>
-        <%= recipe.name %></br>
+        <%= link_to recipe.name, user_recipe_path(id: recipe.id) %></br>
     <% end %>
 <% end %>
-
 
 <p><%= link_to "Create a Recipe!", new_user_recipe_path(@recipes) %></p>
 

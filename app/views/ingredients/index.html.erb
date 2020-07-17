@@ -12,5 +12,5 @@
 <h1>Head back to one of your Recipes!</h1>
 
 <% @recipes.each do |recipe| %>
-    <%= link_to recipe.name, user_recipe_index_path(recipe) %>
+    <%= link_to recipe.name, user_recipe_index_path(recipe) %></br>
 <% end %>
