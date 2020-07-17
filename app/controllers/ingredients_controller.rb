@@ -15,16 +15,17 @@ class IngredientsController < ApplicationController
     
 
     def show
-        
+        @ingredient = Ingredient.find_by(id: params[:id])
     end
 
     def edit
-        binding.pry
-        
+        @ingredient = Ingredient.find_by(id: params[:id])
     end 
 
     def update
-        
+    @ingredient = Ingredient.find_by(id: params[:id])
+    @ingredient.update(ingredient_params)
+    redirect_to ingredient_path(@ingredient)
     end 
 
     def destroy
