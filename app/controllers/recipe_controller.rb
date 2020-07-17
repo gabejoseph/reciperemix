@@ -8,6 +8,7 @@ class RecipeController < ApplicationController
     def index
         if params[:user_id]
             session[:user_id] = params[:user_id]
+            @user = User.find_by(id: params[:user_id])
             @all_recipes = Recipe.all
             @user_recipes = Recipe.all.find_by(user_id: params[:user_id])
             binding.pry

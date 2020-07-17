@@ -1,13 +1,10 @@
 <h1>All Recipes</h1>
 
-<% if !@all_recipes.nil? %>
+<% if !@all_recipes.empty? %>
     <% @all_recipes.each do |recipe| %>
         <%= recipe.name %></br>
     <% end %>
 <% end %>
-
-
-<% binding.pry %>
 
 <h1>My Recipes</h1>
 <% if !@user_recipes.nil? %>
@@ -16,6 +13,6 @@
     <% end %>
 <% end %>
 
-<p><%= link_to "Create a Recipe!", new_user_recipe_path(@recipes) %></p>
+<p><%= link_to "Create a Recipe!", new_user_recipe_path(user_id: @user.id) %></p>
 
 <p><%= link_to "Create an Ingredient!", ingredients_path %></p>
