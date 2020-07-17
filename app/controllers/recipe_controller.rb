@@ -7,6 +7,7 @@ class RecipeController < ApplicationController
 
     def index
         @recipes = Recipe.all
+        binding.pry
         @user_recipes = current_user.recipes
     end 
 

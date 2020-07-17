@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def signup 
         if logged_in?
-            redirect_to user_recipe_index_path(@user)
+            redirect_to users_path
         else 
             @user = User.new
             render :new
