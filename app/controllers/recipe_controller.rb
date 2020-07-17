@@ -14,10 +14,8 @@ class RecipeController < ApplicationController
     end 
  
     def create
-        @recipe = Recipe.new(recipe_params)
-        @recipe.user_id = current_user.id
-        @recipe.save
-        redirect_to recipe_ingredients_path(@recipe.id)
+        @recipe = Recipe.create(recipe_params)
+        redirect_to ingredients_path
     end
     
 

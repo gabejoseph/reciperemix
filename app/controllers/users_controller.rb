@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def signup 
         if logged_in?
-            redirect_to recipe_index_path
+            redirect_to user_recipe_index_path(@user)
         else 
             @user = User.new
             render :new
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to recipe_index_path
+            redirect_to user_recipe_index_path(@user)
         else 
             render :new
         end 

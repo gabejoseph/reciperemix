@@ -2,4 +2,9 @@
 
 <h1>All Ingredients</h1>
 
-<%= link_to 'Create an Ingredient', new_recipe_ingredient_path %></br>
+<% @ingredients.each do |ingredient| %>
+    <%= link_to ingredient.name, edit_ingredient_path(ingredient) %></br>
+    </br>
+<% end %>
+
+<%= link_to 'Create an Ingredient', new_ingredient_path %></br>

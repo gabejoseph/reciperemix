@@ -19,7 +19,8 @@ class IngredientsController < ApplicationController
     end
 
     def edit
-
+        binding.pry
+        
     end 
 
     def update
