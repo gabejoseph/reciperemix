@@ -23,9 +23,11 @@ class RecipeController < ApplicationController
     end 
  
     def create
+        binding.pry
         @recipe = Recipe.new(recipe_params)
         @recipe.user_id = session[:user_id]
         @recipe.save
+        binding.pry
         redirect_to recipes_path
     end
     
