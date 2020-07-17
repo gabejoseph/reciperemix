@@ -6,10 +6,10 @@ class RecipeController < ApplicationController
     end 
 
     def index
-        binding.pry
-        if user_id
+        if params[:user_id]
             session[:user_id] = params[:user_id]
             @recipes = Recipe.all
+            @user_recipes = Recipe.all.find_by(user_id: params[:user_id])
         else 
             redirect_to '/'
         end 
