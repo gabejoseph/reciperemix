@@ -3,12 +3,10 @@
   <%= f.label 'Name of Recipe' %>
   <%= f.text_field :name %></br>
   </br>
-  <%= f.label 'Ingredients' %>
-  <%= f.collection_select :ingredients, Ingredient.all, :name, :name, {:selected => NULL } %></br>
-  </br>
   <%= f.submit %>
 
 <% end %>
-
-<p><%= link_to "Create an Ingredient!", ingredients_path %></p>
-
+</br>
+<button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
+</br>
+<button><%= link_to "Logout", '/logout' %></button>
