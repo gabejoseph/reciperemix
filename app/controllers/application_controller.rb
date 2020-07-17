@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user, :logged_in?
 
+
     # configure do
     #     enable :sessions
     #     set :session_secret, "ftwitter_secret"

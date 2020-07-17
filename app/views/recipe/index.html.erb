@@ -3,11 +3,6 @@
     <%= recipe.name %></br>
 <% end %>
 
-<h1>My Recipes</h1>
-<% @user_recipes.each do |recipes| %>
-    <%= recipes.name %></br>
-<% end %>
-
 <p><%= link_to "Create a Recipe!", new_user_recipe_path(@recipes) %></p>
 
 <p><%= link_to "Create an Ingredient!", ingredients_path %></p>
