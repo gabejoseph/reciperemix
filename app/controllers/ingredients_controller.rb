@@ -9,7 +9,9 @@ class IngredientsController < ApplicationController
     end 
 
     def create
+        binding.pry
         @ingredient = Ingredient.create(ingredient_params)
+        binding.pry
         redirect_to recipe_path
     end
     
