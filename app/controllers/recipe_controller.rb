@@ -8,9 +8,9 @@ class RecipeController < ApplicationController
     def index
         if params[:user_id]
             session[:user_id] = params[:user_id]
-            @recipes = Recipe.all
-            @user_recipes = []
-            @user_recipes << Recipe.all.find_by(user_id: params[:user_id])
+            @all_recipes = Recipe.all
+            @user_recipes = Recipe.all.find_by(user_id: params[:user_id])
+            binding.pry
         else 
             redirect_to '/'
         end 
@@ -30,7 +30,9 @@ class RecipeController < ApplicationController
     
 
     def show
-        @recipe = Recipe.all
+        @recipe = current_user.recipes.find_by(id: params[:id])
+        
+        binding.pry
     end
 
     def edit

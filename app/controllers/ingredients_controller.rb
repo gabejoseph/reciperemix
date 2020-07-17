@@ -12,6 +12,7 @@ class IngredientsController < ApplicationController
 
     def create 
         @ingredient = Ingredient.create(ingredient_params)
+        binding.pry
         redirect_to ingredient_path(@ingredient)
     end
     

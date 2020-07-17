@@ -1,9 +1,13 @@
 <h1>All Recipes</h1>
 
-<% @recipes.each do |recipe| %>
-    <%= recipe.name %></br>
+<% if !@all_recipes.nil? %>
+    <% @all_recipes.each do |recipe| %>
+        <%= recipe.name %></br>
+    <% end %>
 <% end %>
 
+
+<% binding.pry %>
 
 <h1>My Recipes</h1>
 <% if !@user_recipes.nil? %>
