@@ -22,12 +22,7 @@ class RecipeController < ApplicationController
     
 
     def show
-
-        # if session[:user_id]
-        #     @user = User.find(params[:id])
-        # else 
-        #     redirect_to '/'
-        # end 
+        @recipe = Recipe.all
     end
 
     def edit

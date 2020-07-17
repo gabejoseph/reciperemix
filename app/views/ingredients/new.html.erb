@@ -1,25 +1,23 @@
 <h1>Welcome to the New Ingredients Form</h1>
 
-<% binding.pry %>
-
 <%= form_for @ingredients do |f| %>
   
   <%= f.label 'Name of Ingredient' %>
   <%= f.text_field :name %></br>
-
+  </br>
   <%= f.label 'Calories' %>
-  <%= f.text_field :calories %></br>
-
+  <%= f.number_field :calories %></br>
+  </br>
   <%= f.label 'Fats' %>
-  <%= f.text_field :fats %></br>
-
+  <%= f.number_field :fats %></br>
+  </br>
   <%= f.label 'Carbohydrates' %>
-  <%= f.text_field :carbohydrates %></br>
-
+  <%= f.number_field :carbohydrates %></br>
+  </br>
   <%= f.label 'Protein' %>
-  <%= f.text_field :protein %></br>
-
-  <%= f.submit %>
+  <%= f.number_field :protein %></br>
+  </br>
+  <%= f.submit 'Add Ingredient To Recipe' %>
 
 <% end %>
 

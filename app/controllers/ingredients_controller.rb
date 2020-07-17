@@ -5,33 +5,17 @@ class IngredientsController < ApplicationController
     end 
 
     def new 
-        binding.pry
         @ingredients = Ingredient.new(recipe_id: params[:recipe_id])
-        binding.pry
     end 
 
     def create
-        binding.pry
-        # user = User.create(user_params)
-        # if user.valid?
-        #     session[:user_id] = user.id
-        #     redirect_to user
-        # else 
-        #     render :new
-        # end 
-
-      end
+        @ingredient = Ingredient.create(ingredient_params)
+        redirect_to recipe_path
+    end
     
 
-      def show
-
-        # if session[:user_id]
-        #     @user = User.find(params[:id])
-        # else 
-        #     redirect_to '/'
-        # end 
-
-      end
+    def show
+    end
 
     def edit
 
@@ -48,9 +32,10 @@ class IngredientsController < ApplicationController
         end 
     end
     
-    # private
+    private
 
-    # def user_params
-    #     params.require(:ingredients).permit(:name, :calories, :recipe_id, :remix_id)
-    # end
+    def ingredient_params
+        params.require(:ingredient).permit(:name, :calories, :fats, :protein, :carbohydrates, :recipe_id)
+    end
+
 end

@@ -1,7 +1,5 @@
 <h1>Welcome to the Ingredient Index</h1>
 
-<h1>All Recipes</h1>
-<% @ingredients.each do |ingredient| %>
-    <%= link_to ingredient.name, new_recipe_ingredient_path %></br>
-<% end %>
+<h1>All Ingredients</h1>
 
+<%= link_to 'Create an Ingredient', new_recipe_ingredient_path %></br>
