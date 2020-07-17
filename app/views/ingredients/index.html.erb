@@ -8,3 +8,9 @@
 <% end %>
 
 <%= link_to 'Create an Ingredient', new_ingredient_path %></br>
+
+<h1>Head back to one of your Recipes!</h1>
+
+<% @recipes.each do |recipe| %>
+    <%= link_to recipe.name, user_recipe_index_path(recipe) %>
+<% end %>

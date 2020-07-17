@@ -1,1 +1,9 @@
 <h1>Welcome to the Ingredients Show</h1>
+
+<h3>Ingredient Name: <%= @ingredient.name %></h3>
+<h5>Calories: <%= @ingredient.calories %></h5>
+<h5>Fats: <%= @ingredient.fats %></h5>
+<h5>carbohydrates: <%= @ingredient.carbohydrates %></h5>
+<h5>Protein: <%= @ingredient.protein %></h5>
+
+<%= link_to 'Back to Ingredients Index', ingredients_path %>
