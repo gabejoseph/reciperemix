@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
 
     def new 
         @ingredients = Ingredient.new
+        binding.pry
     end 
 
     def create 

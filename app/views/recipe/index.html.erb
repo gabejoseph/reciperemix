@@ -2,12 +2,12 @@
 
 <% if !@all_recipes.empty? %>
     <% @all_recipes.each do |recipe| %>
-        <%= recipe.name %></br>
+        <p><%= recipe.name %></p></br>
     <% end %>
 <% end %>
 
 <h1>My Recipes</h1>
-<% if !@user_recipes.nil? %>
+<% if !@user_recipes.empty? %>
     <% @user_recipes.each do |recipe| %>
         <%= link_to recipe.name, user_recipe_path(id: recipe.id) %></br>
     <% end %>

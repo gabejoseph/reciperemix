@@ -10,8 +10,8 @@ class RecipeController < ApplicationController
             session[:user_id] = params[:user_id]
             @user = User.find_by(id: params[:user_id])
             @all_recipes = Recipe.all
-            @user_recipes = Recipe.all.find_by(user_id: params[:user_id])
-            binding.pry
+            @user_recipes = []
+            @user_recipes << Recipe.all.find_by(user_id: params[:user_id])
         else 
             redirect_to '/'
         end 
