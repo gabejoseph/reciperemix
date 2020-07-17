@@ -1,1 +1,26 @@
 <h1>Welcome to the New Ingredients Form</h1>
+
+<% binding.pry %>
+
+<%= form_for @ingredients do |f| %>
+  
+  <%= f.label 'Name of Ingredient' %>
+  <%= f.text_field :name %></br>
+
+  <%= f.label 'Calories' %>
+  <%= f.text_field :calories %></br>
+
+  <%= f.label 'Fats' %>
+  <%= f.text_field :fats %></br>
+
+  <%= f.label 'Carbohydrates' %>
+  <%= f.text_field :carbohydrates %></br>
+
+  <%= f.label 'Protein' %>
+  <%= f.text_field :protein %></br>
+
+  <%= f.submit %>
+
+<% end %>
+
+ 

@@ -5,10 +5,13 @@ class IngredientsController < ApplicationController
     end 
 
     def new 
-        @ingredients = Ingredient.new
+        binding.pry
+        @ingredients = Ingredient.new(recipe_id: params[:recipe_id])
+        binding.pry
     end 
 
     def create
+        binding.pry
         # user = User.create(user_params)
         # if user.valid?
         #     session[:user_id] = user.id

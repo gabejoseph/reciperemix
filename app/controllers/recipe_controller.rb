@@ -17,7 +17,6 @@ class RecipeController < ApplicationController
         @recipe = Recipe.new(recipe_params)
         @recipe.user_id = current_user.id
         @recipe.save
-        binding.pry
         redirect_to recipe_ingredients_path(@recipe.id)
     end
     
