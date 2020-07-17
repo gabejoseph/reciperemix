@@ -7,6 +7,7 @@ class RecipeController < ApplicationController
 
     def index
         @recipes = Recipe.all
+        @user_recipes = current_user.recipes
     end 
 
     def new 
@@ -14,6 +15,7 @@ class RecipeController < ApplicationController
     end 
  
     def create
+        binding.pry
         @recipe = Recipe.create(recipe_params)
         redirect_to ingredients_path
     end

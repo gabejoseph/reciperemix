@@ -2,11 +2,13 @@
   
   <%= f.label 'Name of Recipe' %>
   <%= f.text_field :name %></br>
-
+  </br>
   <%= f.label 'Ingredients' %>
-  <%= f.collection_select :ingredients, Ingredient.all, :name, :name %></br>
-
+  <%= f.collection_select :ingredients, Ingredient.all, :name, :name, {:selected => NULL } %></br>
+  </br>
   <%= f.submit %>
 
 <% end %>
+
+<p><%= link_to "Create an Ingredient!", ingredients_path %></p>
 

@@ -11,10 +11,9 @@ class IngredientsController < ApplicationController
 
     def create 
         @ingredient = Ingredient.create(ingredient_params)
-        redirect_to recipe_ingredients_path(@ingredient)
+        redirect_to ingredient_path(@ingredient)
     end
     
-
     def show
         @ingredient = Ingredient.find_by(id: params[:id])
     end
@@ -24,9 +23,9 @@ class IngredientsController < ApplicationController
     end 
 
     def update
-    @ingredient = Ingredient.find_by(id: params[:id])
-    @ingredient.update(ingredient_params)
-    redirect_to ingredient_path(@ingredient)
+        @ingredient = Ingredient.find_by(id: params[:id])
+        @ingredient.update(ingredient_params)
+        redirect_to ingredient_path(@ingredient)
     end 
 
     def destroy
