@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'users#destroy'
   post '/recipes', to: 'recipe#create'
   get '/recipes/:id', to: 'recipe#show'
+  patch '/recipe', to: 'recipe#update'
   post '/ingredients', to: 'ingredients#create'
   get '/recipe/created', to: 'recipe#created'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

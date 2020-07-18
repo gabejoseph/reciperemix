@@ -33,11 +33,17 @@ class RecipeController < ApplicationController
 
     def edit
         @recipe = Recipe.find_by(id: params[:id])
-        binding.pry
     end 
 
     def update
-        
+        binding.pry
+        # if params[:content].empty?
+        #     redirect to "/recipes/#{params[:id]}/edit"
+        # end 
+        # @epiphanies = Epiphany.find_by(id: params[:id])
+        # @epiphanies.update(content: params[:content])
+        # @epiphanies.save
+        # redirect to "/epiphanies/#{@epiphanies.id}"
     end 
 
     def destroy
