@@ -1,7 +1,7 @@
 <h1>Welcome to the Recipe Show!</h1>
 
 <% @recipe.each do |recipe| %>
-  <%= link_to recipe.name, edit_user_recipe_path(recipe) %></br>
+  <%= link_to recipe.name, edit_user_recipe_path(id: recipe.id) %></br>
   </br>
 <% end %>
 

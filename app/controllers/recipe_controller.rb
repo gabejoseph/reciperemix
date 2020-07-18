@@ -9,6 +9,7 @@ class RecipeController < ApplicationController
         if params[:user_id]
             session[:user_id] = params[:user_id]
             @all_recipes = Recipe.all
+            @user = current_user.id
         else 
             redirect_to '/'
         end 
@@ -33,6 +34,8 @@ class RecipeController < ApplicationController
 
     def edit
         @recipe = Recipe.find_by(id: params[:id])
+        @user = User.find_by(id: params[:user_id])
+        binding.pry
     end 
 
     def update
@@ -40,6 +43,10 @@ class RecipeController < ApplicationController
         # if params[:content].empty?
         #     redirect to "/recipes/#{params[:id]}/edit"
         # end 
+        # if recipe_params.empty?
+        #     redirect_to user_recipe_index_path 
+        # end 
+        # @recipe = Recipe.find_by(recipe_params)
         # @epiphanies = Epiphany.find_by(id: params[:id])
         # @epiphanies.update(content: params[:content])
         # @epiphanies.save
@@ -56,7 +63,7 @@ class RecipeController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:name)
+        params.require(:recipe).permit(:name, :user_id)
     end
     
 end

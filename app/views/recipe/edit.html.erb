@@ -1,16 +1,13 @@
-<%= form_for @recipe do |f| %>
-    
-    <% binding.pry %>
-
+<%= form_for edit_user_recipe_path(@recipe) do |f| %>
     <%= f.label 'Name of Recipe' %>
     <%= f.text_field :name %></br>
     </br>
     <%= f.submit %>
   
-  <% end %>
+<% end %>
   
-  </br>
-  <button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
-  </br>
-  <button><%= link_to "Logout", '/logout' %></button>
+</br>
+<button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
+</br>
+<button><%= link_to "Logout", '/logout' %></button>
   

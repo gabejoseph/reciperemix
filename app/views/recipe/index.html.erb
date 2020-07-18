@@ -4,6 +4,8 @@
     <h5><%= recipe.name %> ~ <i><%= recipe.user.username %></i></h5>
 <% end %>
 
+<button><%= link_to "My Recipes", user_recipe_path(id: @user) %></button>
+
 <button><%= link_to "Create a Recipe!", new_user_recipe_path %></button>
 
 <button><%= link_to "Create an Ingredient!", ingredients_path %></button>
