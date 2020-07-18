@@ -1,29 +1,8 @@
-<h1>Welcome to the Recipe Show!<h1>
+<h1>Welcome to the Recipe Show!</h1>
 <% binding.pry %>
 
-
+<% @recipe.each do |recipe| %>
+  <%= link_to recipe.name, edit_user_recipe_path(recipe) %></br>
+<% end %>
 
 <p><%= link_to "Create an Ingredient!", ingredients_path %></p>
-
-<p><%= link_to "Add ingredients to this recipe!", '/ingredients' %></p>
-
-<%= form_for @ingredients do |f| %>
-  
-    <%= f.label 'Name of Ingredient' %>
-    <%= f.text_field :name %></br>
-    </br>
-    <%= f.label 'Calories' %>
-    <%= f.number_field :calories %></br>
-    </br>
-    <%= f.label 'Fats' %>
-    <%= f.number_field :fats %></br>
-    </br>
-    <%= f.label 'Carbohydrates' %>
-    <%= f.number_field :carbohydrates %></br>
-    </br>
-    <%= f.label 'Protein' %>
-    <%= f.number_field :protein %></br>
-    </br>
-    <%= f.submit 'Add Ingredient To Recipe' %>
-  
-  <% end %>

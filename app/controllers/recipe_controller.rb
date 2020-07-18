@@ -8,10 +8,7 @@ class RecipeController < ApplicationController
     def index
         if params[:user_id]
             session[:user_id] = params[:user_id]
-            @user = User.find_by(id: params[:user_id])
             @all_recipes = Recipe.all
-            @user_recipes = []
-            @user_recipes << Recipe.all.find_by(user_id: params[:user_id])
         else 
             redirect_to '/'
         end 
@@ -23,23 +20,20 @@ class RecipeController < ApplicationController
     end 
  
     def create
-        binding.pry
         @recipe = Recipe.new(recipe_params)
         @recipe.user_id = session[:user_id]
         @recipe.save
-        binding.pry
-        redirect_to recipes_path
+        redirect_to "/recipes/#{@recipe.id}"
     end
     
 
     def show
-        @recipe = current_user.recipes.find_by(id: params[:id])
-        
-        binding.pry
+        @recipe = current_user.recipes
     end
 
     def edit
-
+        @recipe = Recipe.find_by(id: params[:id])
+        binding.pry
     end 
 
     def update
@@ -56,7 +50,7 @@ class RecipeController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:name, :user_id)
+        params.require(:recipe).permit(:name)
     end
     
 end

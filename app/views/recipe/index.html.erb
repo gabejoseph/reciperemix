@@ -1,11 +1,10 @@
-<h1>My Recipes</h1>
-<% if !@user_recipes.empty? %>
-    <% @user_recipes.each do |recipe| %>
-        <h3><%= link_to recipe.name, user_recipe_path(id: recipe.id) %><h3></br>
-    <% end %>
+<h1>All Recipes</h1>
+
+<% @all_recipes.each do |recipe| %>
+    <h5><%= recipe.name %> ~ <i><%= recipe.user.username %></i></h5>
 <% end %>
 
-<button><%= link_to "Create a Recipe!", new_user_recipe_path(user_id: @user.id) %></button>
+<button><%= link_to "Create a Recipe!", new_user_recipe_path %></button>
 
 <button><%= link_to "Create an Ingredient!", ingredients_path %></button>
 

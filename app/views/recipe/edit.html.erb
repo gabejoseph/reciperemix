@@ -1,6 +1,14 @@
-<%= @tweets.content %>
-<form action="/tweets/<%= @tweets.id %>" method="post">
-    <input id="hidden" type="hidden" name="_method" value="patch">
-    <input id="content" type="text" name="content" value="<%= @tweets.content %>">
-    <input type="submit" value="submit">
-</form>
+<%= form_for @recipe do |f| %>
+  
+    <%= f.label 'Name of Recipe' %>
+    <%= f.text_field :name %></br>
+    </br>
+    <%= f.submit %>
+  
+  <% end %>
+  
+  </br>
+  <button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
+  </br>
+  <button><%= link_to "Logout", '/logout' %></button>
+  
