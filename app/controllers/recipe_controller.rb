@@ -33,29 +33,25 @@ class RecipeController < ApplicationController
     end
 
     def edit
-        @recipe = Recipe.find_by(id: params[:id])
-        @user = User.find_by(id: params[:user_id])
+        if current_user
+            @recipe = Recipe.find_by(id: params[:id])
+            @user = User.find_by(id: params[:user_id])
+        else 
+            redirect_to '/'
+        end 
     end 
 
     def update
-        if recipe_params.empty?
-            redirect_to user_recipe_index_path 
-        end 
         @recipe = Recipe.find_by(id: params[:format])
         @recipe.update(recipe_params)
         @recipe.save
         redirect_to user_recipe_path(id: @recipe.id, user_id: current_user.id)
-        # redirect_to "/users/#{current_user.id}/recipe/#{@recipe.id}"
-        # @epiphanies = Epiphany.find_by(id: params[:id])
-        # @epiphanies.update(content: params[:content])
-        # @epiphanies.save
-        # redirect to "/epiphanies/#{@epiphanies.id}"
     end 
 
     def destroy
         if current_user
-            session.delete :user_id
-            redirect_to '/'
+            @recipe = Recipe.find_by(id: params[:id]).destroy
+            redirect_to user_recipe_path(user_id: current_user.id)
         end 
     end
     

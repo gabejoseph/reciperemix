@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   patch "/recipe", to: 'recipe#update'
   post '/ingredients', to: 'ingredients#create'
   get '/recipe/created', to: 'recipe#created'
+  get '/user/:user_id/recipe/:id/delete', to: 'recipe#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
