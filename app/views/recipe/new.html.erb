@@ -1,5 +1,6 @@
 <%= form_for @recipe do |f| %>
   
+  <%= f.hidden_field :user_id, :value => @user.id %>
   <%= f.label 'Name of Recipe' %>
   <%= f.text_field :name %></br>
   </br>

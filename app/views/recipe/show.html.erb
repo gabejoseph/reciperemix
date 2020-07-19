@@ -1,8 +1,11 @@
 <h1>Welcome to the Recipe Show!</h1>
 
 <% @recipe.each do |recipe| %>
-  <h5><%= link_to recipe.name, edit_user_recipe_path(id: recipe.id) %> ~ <%= current_user.username %></h5>
+  <h5><%= link_to recipe.name, edit_user_recipe_path(user_id: @user, id: recipe.id) %> ~ <%= current_user.username %></h5>
 <% end %>
 
+<button><%= link_to "Create a Recipe!", new_user_recipe_path(user_id: @user) %></button></br>
+</br>
 <button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
+</br>
 <button><%= link_to "Logout", '/logout' %></button>

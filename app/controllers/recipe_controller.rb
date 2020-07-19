@@ -18,6 +18,7 @@ class RecipeController < ApplicationController
 
     def new 
         @recipe = Recipe.new
+        @user = current_user
     end 
  
     def create
@@ -30,6 +31,7 @@ class RecipeController < ApplicationController
 
     def show
         @recipe = current_user.recipes
+        @user = current_user.id
     end
 
     def edit
