@@ -3,6 +3,7 @@ class IngredientsController < ApplicationController
     def index
         @ingredients = Ingredient.all
         @recipes = current_user.recipes
+        binding.pry
     end 
 
     def new 

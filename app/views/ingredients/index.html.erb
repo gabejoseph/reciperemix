@@ -7,10 +7,8 @@
     </br>
 <% end %>
 
-<%= link_to 'Create an Ingredient', new_ingredient_path %></br>
+<button><%= link_to 'Create an Ingredient', new_ingredient_path %></button></br>
 
-<h1>Head back to one of your Recipes!</h1>
+<h1>Head back to recipes!</h1>
 
-<% @recipes.each do |recipe| %>
-    <%= link_to recipe.name, user_recipe_index_path(recipe) %></br>
-<% end %>
+<button><%= link_to 'Head back to Recipes', user_recipe_index_path(@recipes) %></button></br>
