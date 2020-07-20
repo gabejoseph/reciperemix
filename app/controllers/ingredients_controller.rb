@@ -18,12 +18,10 @@ class IngredientsController < ApplicationController
         end 
         if @ingredients.valid?
             @ingredients.save!
-            binding.pry
             redirect_to ingredient_path(@ingredients)
         else 
-            @recipe = Recipe.find_by(user_id: current_user.id)
-            binding.pry
-            redirect_to new_ingredient_path(@recipe)
+            @recipe = Recipe.all.select{|m| m.user_id == current_user.id}
+            render :new
         end 
     end
     
