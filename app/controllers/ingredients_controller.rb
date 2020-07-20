@@ -12,15 +12,15 @@ class IngredientsController < ApplicationController
 
     def create 
         @ingredient = Ingredient.new(ingredient_params)
-        binding.pry
         @ingredient.recipes << Recipe.find_by(name: params[:ingredient][:recipes])
-        binding.pry
         @ingredient.save!
-        binding.pry
+        redirect_to ingredient_path(@ingredient)
     end
     
     def show
+        binding.pry
         @ingredient = Ingredient.find_by(id: params[:id])
+        binding.pry
     end
 
     def edit
