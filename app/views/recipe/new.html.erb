@@ -1,8 +1,11 @@
 <%= form_for @recipe do |f| %>
   
   <%= f.hidden_field :user_id, :value => @user.id %>
-  <%= f.label 'Name of Recipe' %>
+  <%= f.label 'Name of Recipe' %></br>
   <%= f.text_field :name %></br>
+  </br>
+  <%= f.label 'Write out your recipe here' %></br>
+  <%= f.text_area :content %></br>
   </br>
   <i>Select one of your ingredients's to add this recipe to it</i></br>
   <%= f.collection_select :ingredient, Ingredient.all, :name, :name, {include_blank: 'Select an Ingredient'} %></br>

@@ -2,7 +2,8 @@
 
 <% @all_recipes.each do |recipe| %>
     <h5><%= recipe.name %> ~ <i><%= recipe.user.username %></i></h5>
-<% end %>
+    <i><%= recipe.content %></i></br>
+<% end %></br>
 
 <button><%= link_to "My Recipes", user_recipe_path(id: @user) %></button></br>
 </br>
