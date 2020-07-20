@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'users#destroy'
-  get '/users/:user_id/recipe/new', to: 'recipe#new'
+  get '/recipes', to: 'recipe#new'
   post '/recipes', to: 'recipe#create'
   get "/recipes/:id", to: 'recipe#show'
   patch "/recipe", to: 'recipe#update'

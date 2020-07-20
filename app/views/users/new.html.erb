@@ -1,13 +1,31 @@
+
+
 <h1> Welcome, to the Signup Page </h1>
 <%= form_for @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %></br>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <h2>There were some errors:</h2>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+        <%= f.label :username %>
+        <%= f.text_field :username %></br>
+    </div>
     </br>
-    <%= f.label :password %>
-    <%= f.password_field :password %></br>
+    <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+        <%= f.label :password %>
+        <%= f.password_field :password %></br>
+    </div>
     </br>
-    <%= f.label :email %>
-    <%= f.text_field :email %></br>
+    <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+        <%= f.label :email %>
+        <%= f.text_field :email %></br>
+    </div>
     </br>
     <%= f.submit %>
 <% end %>

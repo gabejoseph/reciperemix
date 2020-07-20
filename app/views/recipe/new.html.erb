@@ -1,6 +1,15 @@
+<% binding.pry %>
 <%= form_for @recipe do |f| %>
-  
-  <%= f.hidden_field :user_id, :value => @user.id %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+            <% @recipe.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
   <%= f.label 'Name of Recipe' %></br>
   <%= f.text_field :name %></br>
   </br>

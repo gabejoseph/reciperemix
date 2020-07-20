@@ -18,14 +18,19 @@ class RecipeController < ApplicationController
     def new 
         @recipe = Recipe.new
         @user = current_user
+        binding.pry
     end 
  
     def create
         @recipe = Recipe.new(recipe_params)
         @recipe.user_id = session[:user_id]
         @recipe.ingredient_id = Ingredient.find_or_create_by!(name: params[:recipe][:ingredient]).id
-        @recipe.save
-        redirect_to "/recipes/#{@recipe.id}"
+        if @recipe.valid?
+            @recipe.save
+            redirect_to "/recipes/#{@recipe.id}"
+        else 
+            render :new
+        end 
     end
     
 
