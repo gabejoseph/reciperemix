@@ -1,9 +1,21 @@
 <h1>Welcome to the New Ingredients Form</h1>
-
+<% binding.pry %>
 <%= form_for @ingredients do |f| %>
-  
+  <% binding.pry %>
+  <% if @ingredients.errors.any? %>
+    <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+            <% @ingredients.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
+  <div class="field<%= ' field_with_errors' if @ingredients.errors[:name].any? %>">
   <%= f.label 'Name of Ingredient' %>
   <%= f.text_field :name %></br>
+  </div>
   </br>
   <%= f.label 'Calories' %>
   <%= f.number_field :calories %></br>
