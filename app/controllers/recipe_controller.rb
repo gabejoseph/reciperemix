@@ -18,7 +18,6 @@ class RecipeController < ApplicationController
     def new 
         @recipe = Recipe.new
         @user = current_user
-        binding.pry
     end 
  
     def create
