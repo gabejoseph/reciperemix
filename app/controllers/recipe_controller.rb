@@ -22,9 +22,14 @@ class RecipeController < ApplicationController
     end 
  
     def create
+        binding.pry
         @recipe = Recipe.new(recipe_params)
+        binding.pry
         @recipe.user_id = session[:user_id]
+        @recipe.ingredient_id = Ingredient.find_or_create_by(name: params[:recipe][:ingredient]).id
+        binding.pry
         @recipe.save
+        binding.pry
         redirect_to "/recipes/#{@recipe.id}"
     end
     
@@ -60,7 +65,7 @@ class RecipeController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:name, :user_id)
+        params.require(:recipe).permit(:name)
     end
     
 end

@@ -13,9 +13,9 @@ class IngredientsController < ApplicationController
     def create 
         @ingredient = Ingredient.new(ingredient_params)
         binding.pry
-        @ingredient.recipes = Recipe.find_by(name: params[:ingredient][:recipes])
+        @ingredient.recipes << Recipe.find_by(name: params[:ingredient][:recipes])
         binding.pry
-        @ingredient.save
+        @ingredient.save!
         binding.pry
     end
     

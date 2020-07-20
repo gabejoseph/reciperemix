@@ -4,6 +4,9 @@
   <%= f.label 'Name of Recipe' %>
   <%= f.text_field :name %></br>
   </br>
+  <i>Select one of your ingredients's to add this recipe to it</i></br>
+  <%= f.collection_select :ingredient, Ingredient.all, :name, :name, {include_blank: 'Select an Ingredient'} %></br>
+  </br>
   <%= f.submit %>
 
 <% end %>
