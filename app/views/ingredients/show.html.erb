@@ -6,4 +6,6 @@
 <h5>carbohydrates: <%= @ingredient.carbohydrates %></h5>
 <h5>Protein: <%= @ingredient.protein %></h5>
 
-<%= link_to 'Back to Ingredients Index', ingredients_path %>
+<button><%= link_to 'Back to Ingredients Index', ingredients_path %></button></br>
+</br>
+<button><%= link_to 'Delete this Ingredient', ingredient_path(@ingredient), method: :delete %></button>

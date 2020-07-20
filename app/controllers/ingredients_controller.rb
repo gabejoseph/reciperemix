@@ -3,6 +3,7 @@ class IngredientsController < ApplicationController
     def index
         @ingredients = Ingredient.all
         @recipes = current_user.recipes
+        binding.pry
     end 
 
     def new 
@@ -18,9 +19,7 @@ class IngredientsController < ApplicationController
     end
     
     def show
-        binding.pry
         @ingredient = Ingredient.find_by(id: params[:id])
-        binding.pry
     end
 
     def edit
@@ -35,8 +34,8 @@ class IngredientsController < ApplicationController
 
     def destroy
         if current_user
-            session.delete :user_id
-            redirect_to '/'
+            Ingredient.find_by(id: params[:id]).destroy
+            redirect_to ingredients_path
         end 
     end
     
