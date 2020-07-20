@@ -6,7 +6,6 @@ class CreateIngredients < ActiveRecord::Migration[6.0]
       t.integer :fats
       t.integer :carbohydrates
       t.integer :protein
-      t.integer :recipe_id
 
       t.timestamps
     end

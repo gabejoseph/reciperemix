@@ -3,18 +3,20 @@ class IngredientsController < ApplicationController
     def index
         @ingredients = Ingredient.all
         @recipes = current_user.recipes
-        binding.pry
     end 
 
     def new 
         @ingredients = Ingredient.new
-        binding.pry
+        @recipe = Recipe.all.select{|m| m.user_id == current_user.id}
     end 
 
     def create 
-        @ingredient = Ingredient.create(ingredient_params)
+        @ingredient = Ingredient.new(ingredient_params)
         binding.pry
-        redirect_to ingredient_path(@ingredient)
+        @ingredient.recipes = Recipe.find_by(name: params[:ingredient][:recipes])
+        binding.pry
+        @ingredient.save
+        binding.pry
     end
     
     def show

@@ -18,7 +18,7 @@
   <%= f.number_field :protein %></br>
   </br>
   <i>Select one of your recipe's to add this ingredient to it</i></br>
-  <%= f.collection_select :recipe, Recipe.all, :name, :name %></br>
+  <%= f.collection_select :recipes, @recipe, :name, :name, {include_blank: 'Select a Recipe'} %></br>
   </br>
   <%= f.submit 'Add Ingredient To Recipe' %>
 
