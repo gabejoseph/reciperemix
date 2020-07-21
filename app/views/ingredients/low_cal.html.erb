@@ -1,13 +1,10 @@
-<% binding.pry %>
-
-
-    <% low_cal.each do |x| %>
-        <h3>Ingredient Name: <%= x.name %></h3>
-        <h5>Calories: <%= x.calories %></h5>
-        <h5>Fats: <%= x.fats %></h5>
-        <h5>carbohydrates: <%= x.carbohydrates %></h5>
-        <h5>Protein: <%= x.protein %></h5>
-    <% end %>
+<% @low_cal.each do |x| %>
+    <h3>Ingredient Name: <%= x.name %></h3>
+    <h5>Calories: <%= x.calories %></h5>
+    <h5>Fats: <%= x.fats %></h5>
+    <h5>carbohydrates: <%= x.carbohydrates %></h5>
+    <h5>Protein: <%= x.protein %></h5>
+<% end %>
 
 <button><%= link_to 'Head back to Recipes', user_recipe_index_path(@user) %></button></br>
 
