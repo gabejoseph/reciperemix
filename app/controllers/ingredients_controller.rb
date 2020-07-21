@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
 
     def new 
         @ingredients = Ingredient.new
+        binding.pry
         @recipe = Recipe.all.select{|m| m.user_id == current_user.id}
     end 
 
