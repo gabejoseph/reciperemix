@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch "/recipe", to: 'recipe#update'
   get '/local', to: 'ingredients#local'
 
+
   match '/app/github/callback', to: 'sessions#create', :via => [:get, :post]
   
   get '/user/:user_id/recipe/:id/delete', to: 'recipe#destroy'
