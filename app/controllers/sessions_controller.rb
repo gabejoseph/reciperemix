@@ -21,6 +21,17 @@ class SessionsController < ApplicationController
         end 
     end
 
+#     Faraday.post(
+#   "https://example.com/login/oauth/access_token",
+#   URI.encode_www_form(
+#     code: params[:code],
+#     client_id: ENV["example_client_id"],
+#     client_secret: ENV["example_client_secret"],
+#   ),
+#   {
+#     "Content-Type" => "application/x-www-form-urlencoded",
+#     "Accept" => "application/json"
+#   }
     # def create
     #     @user = User.find_or_create_from_auth_hash(auth_hash)
     #     self.current_user = @user
