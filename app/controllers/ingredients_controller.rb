@@ -47,10 +47,8 @@ class IngredientsController < ApplicationController
     end
 
     def local
-        binding.pry
         @user = current_user.id
         @low_cal = Ingredient.low_cal_ingredients
-        binding.pry
         render :low_cal
     end 
     

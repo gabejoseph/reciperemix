@@ -24,9 +24,10 @@ class SessionsController < ApplicationController
                 render :new
             end
         end 
-    end
+    end  
 
     def faraday
+        binding.pry
         Faraday.post("https://example.com/login/oauth/access_token",
         URI.encode_www_form(
             code: params[:code],
