@@ -15,13 +15,14 @@ class SessionsController < ApplicationController
             binding.pry
             @faraday = faraday
             binding.pry
-        end 
-        @user = User.find_by(username: params[:name])
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
-            redirect_to user_recipe_index_path(@user)
         else 
-            render :new
+            @user = User.find_by(username: params[:name])
+            if @user && @user.authenticate(params[:password])
+                session[:user_id] = @user.id
+                redirect_to user_recipe_index_path(@user)
+            else 
+                render :new
+            end
         end 
     end
 
