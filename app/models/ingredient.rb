@@ -4,4 +4,6 @@ class Ingredient < ApplicationRecord
 
     validates :name, length: { maximum: 15 }
 
+    scope :low_cal_ingredients, -> { self.where("calories < '50'") }
+
 end

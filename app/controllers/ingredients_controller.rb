@@ -8,7 +8,6 @@ class IngredientsController < ApplicationController
 
     def new 
         @ingredients = Ingredient.new
-        binding.pry
         @recipe = Recipe.all.select{|m| m.user_id == current_user.id}
     end 
 
@@ -46,6 +45,14 @@ class IngredientsController < ApplicationController
             redirect_to ingredients_path
         end 
     end
+
+    def local
+        binding.pry
+        @user = current_user.id
+        @low_cal = Ingredient.low_cal_ingredients
+        binding.pry
+        render :low_cal
+    end 
     
     private
 

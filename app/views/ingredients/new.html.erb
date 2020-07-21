@@ -1,7 +1,5 @@
 <h1>Welcome to the New Ingredients Form</h1>
-<% binding.pry %>
 <%= form_for @ingredients do |f| %>
-  <% binding.pry %>
   <% if @ingredients.errors.any? %>
     <div id="error_explanation">
         <h2>There were some errors:</h2>

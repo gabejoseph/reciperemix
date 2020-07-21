@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/recipes', to: 'recipe#create'
   get "/recipes/:id", to: 'recipe#show'
   patch "/recipe", to: 'recipe#update'
-  get '/recipe/created', to: 'recipe#created'
+  get '/local', to: 'ingredients#local'
   get '/user/:user_id/recipe/:id/delete', to: 'recipe#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
