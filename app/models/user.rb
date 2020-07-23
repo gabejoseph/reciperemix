@@ -8,4 +8,13 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
     validates :password, length: { minimum: 6}
 
+    # def self.create_with_omniauth(auth)
+    #     create! do |user|
+    #       user.provider = auth["provider"]
+    #       user.uid = auth["uid"]
+    #       user.name = auth["info"]["name"]
+    #     end
+    # end
+
+
 end

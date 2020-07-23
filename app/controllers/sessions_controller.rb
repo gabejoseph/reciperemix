@@ -1,4 +1,5 @@
 require 'pry'
+require 'httparty'
 class SessionsController < ApplicationController
 
     def new 
@@ -11,9 +12,10 @@ class SessionsController < ApplicationController
     end 
 
     def create
+        binding.pry
         if !params[:code].nil?
             binding.pry
-            @faraday = faraday
+            # @faraday = faraday
             binding.pry
         else 
             @user = User.find_by(username: params[:name])
