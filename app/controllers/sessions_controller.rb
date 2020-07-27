@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     def create
         binding.pry
-        if !params[:code].nil?
+        if !params[:omniauth].nil?
             binding.pry
             # @faraday = faraday
             binding.pry
