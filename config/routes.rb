@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/local', to: 'ingredients#local'
 
 
-  match '/app/github/callback', to: 'sessions#create', :via => [:get, :post]
+  get '/auth/:provider/callback', to: 'sessions#create'
   
   get '/user/:user_id/recipe/:id/delete', to: 'recipe#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

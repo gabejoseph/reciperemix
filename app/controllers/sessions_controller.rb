@@ -12,11 +12,10 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        binding.pry
-        if !params[:omniauth].nil?
-            binding.pry
-            # @faraday = faraday
-            binding.pry
+        if ENV['GITHUB_KEY'] && ENV['GITHUB_SECRET']
+            # @user = User.find_by( ? )
+            # session[:user_id] = @user.id
+            # redirect_to user_recipe_index_path(@user)
         else 
             @user = User.find_by(username: params[:name])
             if @user && @user.authenticate(params[:password])
