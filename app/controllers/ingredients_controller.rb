@@ -46,7 +46,7 @@ class IngredientsController < ApplicationController
         end 
     end
 
-    def local
+    def lowcal
         @user = current_user.id
         @low_cal = Ingredient.low_cal_ingredients
         render :low_cal

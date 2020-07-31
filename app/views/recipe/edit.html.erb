@@ -10,7 +10,7 @@
 
 
 </br>
-<button><%= link_to "Delete Recipe!", "/user/#{current_user.id}/recipe/#{@recipe.id}/delete" %></button></br>  
+<button><%= link_to "Delete Recipe!", recipe_path(@recipe), :method => :delete %></button></br>  
 </br>
 <button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
 </br>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users do 
-    resources :recipe
+    resources :recipe, only: [:index, :new]
   end 
+  resources :recipe, only: [:create, :edit, :show, :update, :destroy]
   resources :ingredients
 
   root 'users#index'
@@ -9,16 +10,11 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'users#destroy'
-  get '/recipes', to: 'recipe#new'
-  post '/recipes', to: 'recipe#create'
-  get "/recipes/:id", to: 'recipe#show'
-  patch "/recipe", to: 'recipe#update'
-  get '/local', to: 'ingredients#local'
-
+  get '/lowcal', to: 'ingredients#lowcal'
+  
 
   get '/auth/:provider/callback', to: 'sessions#create'
-  
-  get '/user/:user_id/recipe/:id/delete', to: 'recipe#destroy'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 

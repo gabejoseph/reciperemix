@@ -26,7 +26,7 @@ class RecipeController < ApplicationController
         @recipe.ingredient_id = Ingredient.find_or_create_by!(name: params[:recipe][:ingredient]).id
         if @recipe.valid?
             @recipe.save
-            redirect_to "/recipes/#{@recipe.id}"
+            redirect_to recipe_path(current_user.id)
         else 
             render :new
         end 
@@ -57,7 +57,7 @@ class RecipeController < ApplicationController
     def destroy
         if current_user
             @recipe = Recipe.find_by(id: params[:id]).destroy
-            redirect_to user_recipe_path(user_id: current_user.id)
+            redirect_to recipe_path(user_id: current_user.id)
         end 
     end
     

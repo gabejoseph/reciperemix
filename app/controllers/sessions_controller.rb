@@ -12,11 +12,11 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        if ENV['GITHUB_KEY'] && ENV['GITHUB_SECRET']
-            # @user = User.find_by( ? )
-            # session[:user_id] = @user.id
-            # redirect_to user_recipe_index_path(@user)
-        else 
+        # if ENV['GITHUB_KEY'] && ENV['GITHUB_SECRET']
+        #     # @user = User.find_by( ? )
+        #     # session[:user_id] = @user.id
+        #     # redirect_to user_recipe_index_path(@user)
+        # else 
             @user = User.find_by(username: params[:name])
             if @user && @user.authenticate(params[:password])
                 session[:user_id] = @user.id
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
             else 
                 render :new
             end
-        end 
+        # end 
     end  
 
     def faraday
