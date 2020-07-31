@@ -30,7 +30,18 @@ class IngredientsController < ApplicationController
     end
 
     def edit
+        binding.pry
         @ingredient = Ingredient.find_by(id: params[:id])
+        @user = current_user
+        if !logged_in?
+            redirect_to '/login'
+        else 
+            if @ingredient.user_ids.include?(current_user.id)
+                render :edit
+            else
+                redirect_to ingredient_path(@user)
+            end 
+        end 
     end 
 
     def update
