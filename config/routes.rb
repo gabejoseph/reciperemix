@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/lowcal', to: 'ingredients#lowcal'
   
 
-  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

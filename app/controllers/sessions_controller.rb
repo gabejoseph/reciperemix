@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     end 
 
     def create
+        binding.pry
         # if ENV['GITHUB_KEY'] && ENV['GITHUB_SECRET']
         #     # @user = User.find_by( ? )
         #     # session[:user_id] = @user.id

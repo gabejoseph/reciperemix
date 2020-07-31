@@ -36,6 +36,8 @@ gem 'pry'
 
 gem 'tux'
 
+gem 'omniauth-google-oauth2'
+
 gem 'omniauth'
 
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
