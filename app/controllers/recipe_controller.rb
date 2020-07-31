@@ -39,11 +39,15 @@ class RecipeController < ApplicationController
     end
 
     def edit
-        if current_user
-            @recipe = Recipe.find_by(id: params[:id])
-            @user = User.find_by(id: params[:user_id])
+        @recipe = Recipe.find_by(id: params[:id])
+        if !logged_in?
+            redirect_to '/login'
         else 
-            redirect_to '/'
+            if current_user.id == @recipe.user_id
+                render :edit
+            else
+                redirect_to recipe_path(current_user.id)
+            end 
         end 
     end 
 
