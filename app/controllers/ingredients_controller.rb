@@ -30,7 +30,6 @@ class IngredientsController < ApplicationController
     end
 
     def edit
-        binding.pry
         @ingredient = Ingredient.find_by(id: params[:id])
         @user = current_user
         if !logged_in?
