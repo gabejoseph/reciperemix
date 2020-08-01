@@ -12,12 +12,15 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        binding.pry
-        # if ENV['GITHUB_KEY'] && ENV['GITHUB_SECRET']
-        #     # @user = User.find_by( ? )
-        #     # session[:user_id] = @user.id
-        #     # redirect_to user_recipe_index_path(@user)
-        # else 
+        if request.env["omniauth.auth"]
+            @user = User.find_or_create_by(username: request.env["omniauth.auth"][:info][:name]) do |u|
+                u.password = request.env["omniauth.auth"][:info][:email]
+                u.email = request.env["omniauth.auth"][:info][:email]
+            end 
+            session[:user_id] = @user.id
+            binding.pry
+            redirect_to user_recipe_index_path(@user)
+        else 
             @user = User.find_by(username: params[:name])
             if @user && @user.authenticate(params[:password])
                 session[:user_id] = @user.id
@@ -25,7 +28,7 @@ class SessionsController < ApplicationController
             else 
                 render :new
             end
-        # end 
+        end 
     end  
 
     def faraday
