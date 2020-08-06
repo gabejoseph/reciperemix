@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
                 u.email = request.env["omniauth.auth"][:info][:email]
             end 
             session[:user_id] = @user.id
-            binding.pry
             redirect_to user_recipe_index_path(@user)
         else 
             @user = User.find_by(username: params[:name])

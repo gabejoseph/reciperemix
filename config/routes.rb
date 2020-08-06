@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :users do 
     resources :recipe, only: [:index, :new]
   end 
-  resources :recipe, only: [:create, :edit, :show, :update, :destroy]
+  resources :recipe, only: [:index, :create, :edit, :show, :update, :destroy]
   resources :ingredients
+  resources :categories, only: [:new, :create]
 
   root 'users#index'
   get '/signup', to: 'users#signup'

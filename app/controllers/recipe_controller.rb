@@ -7,11 +7,11 @@ class RecipeController < ApplicationController
 
     def index
         if params[:user_id]
-            session[:user_id] = params[:user_id]
-            @all_recipes = Recipe.all
-            @user = current_user.id
+            @user = User.find_by(id: params[:user_id])
+            @recipes = @user.recipes
         else 
-            redirect_to '/'
+            @user = current_user
+            @recipes = Recipe.all
         end 
     end 
 
@@ -47,16 +47,17 @@ class RecipeController < ApplicationController
             if current_user.id == @recipe.user_id
                 render :edit
             else
-                redirect_to recipe_path(@user)
+                redirect_to '/'
             end 
         end 
     end 
 
     def update
-        @recipe = Recipe.find_by(id: params[:format])
+        @recipe = Recipe.find_by(name: params[:recipe][:name])
+        binding.pry
         @recipe.update(recipe_params)
         @recipe.save
-        redirect_to user_recipe_path(id: @recipe.id, user_id: current_user.id)
+        redirect_to user_recipe_index_path(user_id: current_user.id)
     end 
 
     def destroy

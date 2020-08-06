@@ -1,13 +1,13 @@
 <h1>All Recipes</h1>
 
-<% @all_recipes.each do |recipe| %>
+<% @recipes.each do |recipe| %>
     <h5><%= recipe.name %> ~ <i><%= recipe.user.username %></i></h5>
     <i><%= recipe.content %></i></br>
 <% end %></br>
 
 <button><%= link_to "My Recipes", recipe_path(@user) %></button></br>
 </br>
-<button><%= link_to "Create a Recipe!", new_user_recipe_path %></button></br>
+<button><%= link_to "Create a Recipe!", new_user_recipe_path(@user) %></button></br>
 </br>
 <button><%= link_to "Create an Ingredient!", ingredients_path %></button></br>
 </br>
