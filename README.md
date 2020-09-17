@@ -7,20 +7,22 @@ Welcome to Recipe Remix!  This is a content management system for storing and ac
 Add this line to your application's Gemfile:
 
 ```
-ruby gem 'storm_data'
+gem 'bcrypt'
+
+gem 'omniauth'
+
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
+gem 'dotenv-rails'
 ```
 
 And then execute:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install storm_data
+    $ bundle install
 
 ## Usage
 
-Put your Ruby code in the file `lib/storm_data`. To experiment with that code, run `bin/console` for an interactive prompt.
+
 
 ## Development
 
