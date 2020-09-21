@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   end 
   resources :recipe, only: [:index, :create, :edit, :show, :update, :destroy]
   resources :ingredients
-  resources :categories, only: [:new, :create]
 
   root 'users#index'
   get '/signup', to: 'users#signup'
