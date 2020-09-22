@@ -1,3 +1,7 @@
+<p>SESSION ID = <%= session[:user_id] %></p>
+
+<% binding.pry %>
+
 <%= form_for @recipe, url: "/recipe", method: :post do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">

@@ -1,10 +1,5 @@
 class RecipeController < ApplicationController
 
-    def created
-        #needs to use scope method .created from recipe class and redirect to
-        #show utilizing this scope method
-    end 
-
     def index
         if params[:user_id]
             @user = User.find_by(id: params[:user_id])
@@ -21,11 +16,13 @@ class RecipeController < ApplicationController
     end 
  
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = Recipe.create(recipe_params)
         @recipe.user_id = session[:user_id]
         @recipe.ingredient_id = Ingredient.find_or_create_by!(name: params[:recipe][:ingredient]).id
+        # binding.pry
         if @recipe.valid?
             @recipe.save
+            # binding.pry
             redirect_to recipe_path(current_user.id)
         else 
             render :new
@@ -34,8 +31,10 @@ class RecipeController < ApplicationController
     
 
     def show
+        # binding.pry
         @recipe = current_user.recipes
         @user = current_user.id
+        # binding.pry
     end
 
     def edit
