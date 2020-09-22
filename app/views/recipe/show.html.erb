@@ -1,14 +1,6 @@
 <h1>Welcome to the Recipe Show!</h1>
 
-<% if @recipe %>
-  <% @recipe.each do |recipe| %>
-    <h5><%= link_to recipe.name, edit_recipe_path(user_id: @user, id: recipe.id) %> ~ <%= current_user.username %></h5>
-    <i><%= recipe.content %></i>
-  <% end %></br>
-<% else %>
-  <p>No recipes to show</p>
-  <p>Create your first recipe below</p>
-<% end %>
+
 
 </br>
 <button><%= link_to "Create a Recipe!", new_user_recipe_path(user_id: @user) %></button></br>
