@@ -53,10 +53,9 @@ class RecipeController < ApplicationController
 
     def update
         @recipe = Recipe.find_by(name: params[:recipe][:name])
-        binding.pry
         @recipe.update(recipe_params)
         @recipe.save
-        redirect_to user_recipe_index_path(user_id: current_user.id)
+        redirect_to recipe_index_path(user_id: current_user.id)
     end 
 
     def destroy

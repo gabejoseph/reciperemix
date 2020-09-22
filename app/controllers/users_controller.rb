@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to user_recipe_index_path(@user)
+            redirect_to recipe_index_path(@user)
         else 
             render :new
         end 

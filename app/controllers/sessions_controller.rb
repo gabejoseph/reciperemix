@@ -18,12 +18,12 @@ class SessionsController < ApplicationController
                 u.email = request.env["omniauth.auth"][:info][:email]
             end 
             session[:user_id] = @user.id
-            redirect_to recipes_path(@user)
+            redirect_to recipe_index_path(@user)
         else 
             @user = User.find_by(username: params[:name])
             if @user && @user.authenticate(params[:password])
                 session[:user_id] = @user.id
-                redirect_to recipes_path(@user)
+                redirect_to recipe_index_path(@user)
             else 
                 render :new
             end
