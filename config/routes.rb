@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  resources :users do 
-    resources :recipe, only: [:index, :new]
-  end 
-  resources :recipe, only: [:index, :create, :edit, :show, :update, :destroy]
+  resources :users 
+  resources :recipe
   resources :ingredients
 
   root 'users#index'

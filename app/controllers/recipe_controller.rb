@@ -23,7 +23,7 @@ class RecipeController < ApplicationController
         if @recipe.valid?
             @recipe.save
             # binding.pry
-            redirect_to recipe_path(current_user.id)
+            redirect_to recipe_path(id: current_user.id)
         else 
             render :new
         end 
@@ -62,7 +62,7 @@ class RecipeController < ApplicationController
     def destroy
         if current_user
             @recipe = Recipe.find_by(id: params[:id]).destroy
-            redirect_to recipe_path(user_id: current_user.id)
+            redirect_to recipe_path(id: current_user.id)
         end 
     end
     
