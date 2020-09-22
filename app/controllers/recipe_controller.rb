@@ -1,6 +1,7 @@
 class RecipeController < ApplicationController
 
     def index
+        binding.pry
         if params[:user_id]
             @user = User.find_by(id: params[:user_id])
             @recipes = @user.recipes

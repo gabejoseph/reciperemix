@@ -3,9 +3,10 @@ require 'httparty'
 class SessionsController < ApplicationController
 
     def new 
+        binding.pry
         if logged_in?
             @user = current_user.id
-            redirect_to recipe_index_path(@user)
+            redirect_to recipe_index_path(id: @user.id)
         else 
             render :new
         end 
