@@ -1,13 +1,18 @@
 class RecipeController < ApplicationController
 
     def index
-        binding.pry
-        if params[:user_id]
-            @user = User.find_by(id: params[:user_id])
-            @recipes = @user.recipes
-        else 
-            @user = current_user
+        if session[:user_id]
+            @user = User.find_by(id: session[:user_id])
             @recipes = Recipe.all
+            binding.pry
+        elsif params[:format]
+            session[:user_id] = params[:format]
+            @user = User.find_by(id: params[:format])
+            @recipes = Recipe.all
+            binding.pry
+        else 
+            binding.pry
+            redirect_to '/'
         end 
     end 
 

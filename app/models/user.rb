@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
     validates :username, :email, presence: true
     validates :username, :email, uniqueness: true
-    validates :password, length: { minimum: 6}
 
     # def self.create_with_omniauth(auth)
     #     create! do |user|
